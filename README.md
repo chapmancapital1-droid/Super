@@ -44,7 +44,25 @@ git clone https://github.com/n8n-io/self-hosted-ai-starter-kit.git
 cd self-hosted-ai-starter-kit
 cp .env.example .env # you should update secrets and passwords inside
 ```
+---
+When creating your own .env file and setting proper password, key and secret values, consider that it is important to enclose the use of special characters (e.g. # ; / etc.) in quotes to ensure you do not run into issues with the value being mishandled and breaking your docker compose run.  
 
+For example, the proper way to handle .env file creation with sample values for password, key and secret that have special characters:
+```bash
+password="Th#WorstP4$$word#v3r"
+...
+...
+N8N_ENCRYPTION_KEY="super#secret$key!"
+N8N_USER_MANAGEMENT_JWT_SECRET="even!more#secret"
+```
+If you have a broken docker compose due to NOT enclosing your encryption key value in quotes see the section below on cleanup and redeploy on how to recover from a broken docker compose deploy, most often you will see an error message like the following example if this has happened in the n8n docker logs (details):
+
+```bash
+Error: Mismatching encryption keys. The encryption key in the settings file /home/node/.n8n/config does not match the N8N_ENCRYPTION_KEY env var. Please make sure both keys match. More information: https://docs.n8n.io/hosting/environment-variables/configuration-methods/#encryption-key⁠
+```
+
+Optional: You can use the tool dotenv-linter to check your environment files in general to avoid breaking things.  Grab the latest release from the dotenv-linter GitHub releases and add it to your PATH to verify if needed (https://github.com/dotenv-linter/dotenv-linter/releases)
+---
 ### Running n8n using Docker Compose
 
 #### For Nvidia GPU users
@@ -202,6 +220,26 @@ your local n8n instance.
 - [Recipe Recommendations with Qdrant and Mistral](https://n8n.io/workflows/2333-recipe-recommendations-with-qdrant-and-mistral/)
 
 ## Tips & tricks
+---
+### Cleanup and starting over
+
+If for some reason you run into issue where your docker based deployment is broken (issues with .env having special characters and things not working) You can use the following steps to clean up and start the docker compose process over again.  These steps will remove the containers and optionally the images pulled down to completely start over.
+
+```bash
+docker compose down --volumes --remove-orphans
+docker volume rm n8n_storage postgres_storage ollama_storage qdrant_storage
+# and optionally discard the image files pulled down
+docker image rm n8nio/n8n:latest postgres:16-alpine ollama/ollama:latest qdrant/qdrant:latest
+```
+
+Check that things are cleaned up with:
+```bash
+docker ps -a
+docker volume ls
+```
+
+At this point you are ready to create a proper .env file and redeploy the docker containers using docker compose!
+---
 
 ### Accessing local files
 
