@@ -280,6 +280,7 @@ def collect_files(root: Path) -> list[tuple[str, Path]]:
     add("app/core/registry.py")
     add("app/core/router.py")
     add("app/core/tools.py")
+    add("app/core/mcp_manager.py")
     add("app/core/runtime.py")
     add("app/core/task_engine.py")
     add("app/core/senses.py")
@@ -300,6 +301,7 @@ def collect_files(root: Path) -> list[tuple[str, Path]]:
     add("pyproject.toml")
     add(".env.example")
     add("README.md")
+    add("mcp_config.json")
 
     # Agent manifests + prompts.
     for m in sorted((root / "agents" / "manifests").glob("*.json")):

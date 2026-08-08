@@ -19,3 +19,7 @@ def get_agent(agent_id: str, request: Request) -> AgentManifest:
     if agent is None:
         raise HTTPException(status_code=404, detail=f"Unknown agent: {agent_id}")
     return agent
+
+@router.get("/tools/list")
+def list_tools(request: Request):
+    return request.app.state.tools.list()

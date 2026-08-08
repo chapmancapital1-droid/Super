@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "sample": {
+      "command": "python3",
+      "args": ["/home/user/Super/nerdcommand/skills/mcp/sample_server.py"],
+      "env": {}
+    }
+  }
+}

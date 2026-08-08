@@ -34,6 +34,8 @@ delegate to agents → respect approval gates → return a structured result.
 | `skills/agency/` | **The Agency** — 270 AI specialist personas |
 | `tests/` | Pytest suite |
 | `BUILD_LOG.txt` | Living build document (generated) |
+| `mcp_config.json` | Model Context Protocol server configuration |
+| `app/core/mcp_manager.py` | MCP client and tool discovery |
 
 ## The Agency (installed)
 
@@ -100,6 +102,19 @@ The build log is generated from the actual source so it never drifts:
 ```bash
 python3 scripts/generate_build_log.py  # rewrites BUILD_LOG.txt
 ```
+
+## MCP Integration (Phase 4 preview)
+
+JARVIS now supports the **Model Context Protocol (MCP)**. It can connect to
+any number of external MCP servers to gain new tools dynamically.
+
+1. **Configure servers** in `mcp_config.json`.
+2. **Start the API** — JARVIS connects to each server via stdio and discovers
+   its tools automatically.
+3. **Use tools** — agents permitted to use `mcp:*` (like the `researcher`) can
+   now call these tools. MCP tools are named `server_name__tool_name`.
+
+A sample MCP server is provided at `skills/mcp/sample_server.py`.
 
 ## Architecture note
 

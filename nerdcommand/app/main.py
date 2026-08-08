@@ -10,6 +10,7 @@ Run (local, echo provider — no API key needed):
 """
 from __future__ import annotations
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from .api.v1 import agents, chat, health, senses, tasks
@@ -20,7 +21,15 @@ from .core.router import ModelRouter
 from .core.runtime import AgentRuntime
 from .core.tools import ToolRegistry
 from .store.memory import SessionStore
+from .core.mcp_manager import mcp_manager
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Start MCP Manager
+    import asyncio
+    asyncio.create_task(mcp_manager.start())
+    yield
+    # Shutdown logic if needed (e.g. stop MCP servers)
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -30,6 +39,7 @@ def create_app() -> FastAPI:
             "Personal AI command system. One interface, many specialized "
             "agents, verified execution."
         ),
+        lifespan=lifespan,
     )
 
     # Wire the engine.
