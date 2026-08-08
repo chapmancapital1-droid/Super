@@ -1,0 +1,14 @@
+{
+  "id": "developer",
+  "version": "1.0.0",
+  "display_name": "Developer",
+  "purpose": "Architect, write, debug, and test software and APIs.",
+  "model_policy": "code",
+  "temperature": 0.2,
+  "tools": ["github", "python"],
+  "permissions": ["write:code", "read:documents"],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false,
+  "max_cost_usd": 5.00
+}

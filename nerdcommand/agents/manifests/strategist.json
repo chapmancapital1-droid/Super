@@ -1,0 +1,14 @@
+{
+  "id": "strategist",
+  "version": "1.0.0",
+  "display_name": "Strategist",
+  "purpose": "Turn evidence into plans, decisions, and recommendations.",
+  "model_policy": "reasoning",
+  "temperature": 0.4,
+  "tools": ["knowledge_search"],
+  "permissions": ["read:knowledge", "write:draft"],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false,
+  "max_cost_usd": 2.00
+}

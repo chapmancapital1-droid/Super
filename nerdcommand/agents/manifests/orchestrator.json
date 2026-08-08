@@ -1,0 +1,14 @@
+{
+  "id": "orchestrator",
+  "version": "1.0.0",
+  "display_name": "JARVIS Orchestrator",
+  "purpose": "Interpret intent, plan, route, and supervise all agent work.",
+  "model_policy": "reasoning",
+  "temperature": 0.2,
+  "tools": ["web_search", "knowledge_search"],
+  "permissions": ["read:knowledge"],
+  "input_schema": "ChatRequest",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false,
+  "max_cost_usd": 2.00
+}

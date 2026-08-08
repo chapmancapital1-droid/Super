@@ -1,0 +1,14 @@
+{
+  "id": "validator",
+  "version": "1.0.0",
+  "display_name": "Validator / QA",
+  "purpose": "Check facts, logic, sources, calculations, and requirement coverage.",
+  "model_policy": "reasoning",
+  "temperature": 0.1,
+  "tools": ["knowledge_search"],
+  "permissions": ["read:knowledge"],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false,
+  "max_cost_usd": 1.50
+}

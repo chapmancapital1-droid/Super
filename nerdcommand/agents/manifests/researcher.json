@@ -1,0 +1,14 @@
+{
+  "id": "researcher",
+  "version": "1.0.0",
+  "display_name": "Researcher",
+  "purpose": "Find, compare, and summarize reliable evidence with sources.",
+  "model_policy": "reasoning",
+  "temperature": 0.2,
+  "tools": ["web_search", "browser", "pdf_reader", "knowledge_search"],
+  "permissions": ["read:web", "read:knowledge", "read:documents"],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false,
+  "max_cost_usd": 2.00
+}

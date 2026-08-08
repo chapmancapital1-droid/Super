@@ -1,0 +1,251 @@
+:root {
+  --navy: #0b1e3a;
+  --navy-2: #12294a;
+  --indigo: #2e4e8f;
+  --cyan: #22c3e6;
+  --cyan-dark: #0e93b8;
+  --ink: #16233b;
+  --grey: #4a5568;
+  --grid: #c7d3e3;
+  --bg: #eef3fa;
+  --card: #ffffff;
+  --ok: #22c55e;
+  --wait: #eab308;
+  --err: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+header.topbar {
+  background: linear-gradient(90deg, var(--navy), var(--indigo));
+  color: #fff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(11, 30, 58, 0.25);
+}
+
+header.topbar .brand {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+}
+
+header.topbar .brand .accent {
+  color: var(--cyan);
+}
+
+header.topbar .status {
+  margin-left: auto;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--grid);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(11, 30, 58, 0.08);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  color: var(--navy);
+  border-bottom: 2px solid var(--cyan);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Chat */
+.chat-box {
+  border: 1px solid var(--grid);
+  border-radius: 10px;
+  min-height: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 12px;
+  background: #fbfcfe;
+  margin-bottom: 12px;
+}
+
+.msg {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.msg.user {
+  background: var(--indigo);
+  color: #fff;
+  align-self: flex-end;
+}
+
+.msg.jarvis {
+  background: #eef4ff;
+  color: var(--ink);
+  border: 1px solid var(--grid);
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--grid);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.chat-input button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-input button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Task graph */
+.node {
+  border: 1px solid var(--grid);
+  border-left: 4px solid var(--indigo);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #f7f9fd;
+}
+
+.node .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.node .agent {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--navy);
+}
+
+.node .deps {
+  font-size: 11px;
+  color: var(--grey);
+}
+
+.pill {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.pill.complete { background: #dcfce7; color: #166534; }
+.pill.running { background: #dbeafe; color: #1e40af; }
+.pill.queued { background: #e2e8f0; color: #334155; }
+.pill.waiting { background: #fef9c3; color: #854d0e; }
+.pill.failed { background: #fee2e2; color: #991b1b; }
+.pill.approval_required { background: #ffedd5; color: #9a3412; }
+.pill.blocked { background: #f3e8ff; color: #6b21a8; }
+
+.summary {
+  background: var(--navy);
+  color: #e6f0ff;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin-top: 12px;
+  max-height: 240px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.meta {
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 8px;
+}
+
+.approval {
+  border: 1px solid var(--wait);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: #fffaf0;
+}
+
+.approval .action {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.empty {
+  color: var(--grey);
+  font-size: 13px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  background: var(--cyan);
+  color: #002;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
