@@ -232,10 +232,11 @@ class Settings:
     # --- Model router ---
     # Default provider is "echo" (no key needed). Set JARVIS_MODEL_PROVIDER
     # to "openai" and JARVIS_OPENAI_API_KEY to use a real OpenAI-compatible API.
-    model_provider: str = os.getenv("JARVIS_MODEL_PROVIDER", "echo")
-    openai_api_key: str = os.getenv("JARVIS_OPENAI_API_KEY", "")
+    # Wired to LM Studio by default as requested.
+    model_provider: str = os.getenv("JARVIS_MODEL_PROVIDER", "openai")
+    openai_api_key: str = os.getenv("JARVIS_OPENAI_API_KEY", "lm-studio")
     openai_base_url: str = os.getenv(
-        "JARVIS_OPENAI_BASE_URL", "https://api.openai.com/v1"
+        "JARVIS_OPENAI_BASE_URL", "http://127.0.0.1:1234/v1"
     )
     model_fast: str = os.getenv("JARVIS_MODEL_FAST", "gpt-4o-mini")
     model_reasoning: str = os.getenv("JARVIS_MODEL_REASONING", "gpt-4o")
