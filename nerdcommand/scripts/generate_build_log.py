@@ -326,6 +326,11 @@ def collect_files(root: Path) -> list[tuple[str, Path]]:
     for t in sorted((root / "tests").glob("test_*.py")):
         add(f"tests/{t.name}")
 
+    # Scripts.
+    add("scripts/wire_agency.py")
+    add("scripts/verify_llms.py")
+    add("scripts/generate_build_log.py")
+
     return order
 
 

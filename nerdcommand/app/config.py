@@ -45,6 +45,9 @@ class Settings:
     model_code_url: str = os.getenv("JARVIS_MODEL_CODE_URL", "")
     model_code_key: str = os.getenv("JARVIS_MODEL_CODE_KEY", "")
 
+    # Ollama specific
+    ollama_base_url: str = os.getenv("JARVIS_OLLAMA_BASE_URL", "http://127.0.0.1:11434")
+
     # --- Directories ---
     manifests_dir: Path = Path(os.getenv(
         "JARVIS_MANIFESTS_DIR", str(BASE_DIR / "agents" / "manifests")))

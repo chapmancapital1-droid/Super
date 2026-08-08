@@ -119,12 +119,60 @@ class OpenAICompatibleProvider(BaseProvider):
         return {"summary": content}
 
 
+class OllamaProvider(BaseProvider):
+    """Calls Ollama's native API directly."""
+
+    name = "ollama"
+
+    def __init__(self, base_url: str) -> None:
+        self.base_url = base_url.rstrip("/")
+
+    def generate(
+        self,
+        *,
+        system_prompt: str,
+        user_prompt: str,
+        model: str,
+        json_schema: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        import httpx
+
+        payload = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "stream": False,
+            "options": {"temperature": 0.3},
+        }
+        if json_schema:
+            payload["format"] = "json"
+
+        try:
+            resp = httpx.post(
+                f"{self.base_url}/api/chat",
+                json=payload,
+                timeout=60.0,
+            )
+            resp.raise_for_status()
+        except Exception as exc:
+            raise ProviderError(f"Ollama call failed: {exc}") from exc
+
+        content = resp.json()["message"]["content"]
+        if json_schema:
+            import json
+            return json.loads(content)
+        return {"summary": content}
+
+
 class ModelRouter:
     """Selects provider + model based on the agent's model_policy."""
 
     def __init__(self) -> None:
         self._providers: Dict[str, BaseProvider] = {}
         self._register(EchoProvider())
+        self._register(OllamaProvider(settings.ollama_base_url))
         if settings.model_provider in ("openai", "auto") and settings.openai_api_key:
             self._register(
                 OpenAICompatibleProvider(settings.openai_api_key,
@@ -135,6 +183,8 @@ class ModelRouter:
         self._providers[provider.name] = provider
 
     def provider_for(self, agent: AgentManifest) -> BaseProvider:
+        if settings.model_provider == "ollama":
+            return self._providers["ollama"]
         if settings.model_provider in ("openai", "auto") and settings.openai_api_key:
             return self._providers["openai"]
         return self._providers["echo"]

@@ -67,6 +67,18 @@ JARVIS supports running multiple local LLMs (e.g., Llama 3 for reasoning, Phi 3 
 export JARVIS_MODEL_FAST_URL="http://127.0.0.1:11434/v1"      # Ollama
 export JARVIS_MODEL_REASONING_URL="http://127.0.0.1:1234/v1" # LM Studio
 export JARVIS_MODEL_CODE_URL="http://127.0.0.1:8080/v1"      # vLLM
+
+# Or use Ollama directly as the main provider
+export JARVIS_MODEL_PROVIDER="ollama"
+export JARVIS_OLLAMA_BASE_URL="http://127.0.0.1:11434"
+```
+
+### Verify Connections
+
+You can verify your local LLM connections using the provided script:
+
+```bash
+python3 scripts/verify_llms.py
 ```
 
 ### 2. Frontend (Next.js web UI)
