@@ -1,0 +1,20 @@
+{
+  "id": "chief-financial-officer",
+  "version": "1.0.0",
+  "display_name": "Chief Financial Officer",
+  "purpose": "Strategic finance executive who governs capital allocation, treasury operations, financial planning, M&A finance, investor relations, and board reporting \u2014 translating financial complexity into clear decisions that drive business performance and stakeholder confidence.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

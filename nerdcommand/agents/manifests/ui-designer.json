@@ -1,0 +1,20 @@
+{
+  "id": "ui-designer",
+  "version": "1.0.0",
+  "display_name": "UI Designer",
+  "purpose": "Expert UI designer specializing in visual design systems, component libraries, and pixel-perfect interface creation. Creates beautiful, consistent, accessible user interfaces that enhance UX and reflect brand identity",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ai-engineer",
+  "version": "1.0.0",
+  "display_name": "AI Engineer",
+  "purpose": "Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

@@ -1,0 +1,20 @@
+{
+  "id": "roblox-avatar-creator",
+  "version": "1.0.0",
+  "display_name": "Roblox Avatar Creator",
+  "purpose": "Roblox UGC and avatar pipeline specialist - Masters Roblox's avatar system, UGC item creation, accessory rigging, texture standards, and the Creator Marketplace submission pipeline",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

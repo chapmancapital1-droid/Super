@@ -1,0 +1,20 @@
+{
+  "id": "unreal-multiplayer-architect",
+  "version": "1.0.0",
+  "display_name": "Unreal Multiplayer Architect",
+  "purpose": "Unreal Engine networking specialist - Masters Actor replication, GameMode/GameState architecture, server-authoritative gameplay, network prediction, and dedicated server setup for UE5",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

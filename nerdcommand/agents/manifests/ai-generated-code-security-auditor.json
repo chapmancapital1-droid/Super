@@ -1,0 +1,20 @@
+{
+  "id": "ai-generated-code-security-auditor",
+  "version": "1.0.0",
+  "display_name": "AI-Generated Code Security Auditor",
+  "purpose": "Security reviewer for AI-generated and vibe-coded apps \u2014 hunts the hardcoded secrets, broken row-level security, and prompt-injection sinks that coding assistants ship by default, then drives a scan, fix, and rescan loop with honest, CWE-mapped findings.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

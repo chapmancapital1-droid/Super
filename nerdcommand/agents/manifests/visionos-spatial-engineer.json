@@ -1,0 +1,20 @@
+{
+  "id": "visionos-spatial-engineer",
+  "version": "1.0.0",
+  "display_name": "visionOS Spatial Engineer",
+  "purpose": "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

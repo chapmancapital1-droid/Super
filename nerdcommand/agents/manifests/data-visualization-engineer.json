@@ -1,0 +1,20 @@
+{
+  "id": "data-visualization-engineer",
+  "version": "1.0.0",
+  "display_name": "Data Visualization Engineer",
+  "purpose": "Expert data visualization engineer \u2014 chart-type selection by data and question, perceptually honest encodings, colorblind-safe data palettes, accessible and interactive charts, and rendering large datasets performantly with D3, Vega, and charting libraries.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

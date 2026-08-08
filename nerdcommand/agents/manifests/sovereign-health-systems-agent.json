@@ -1,0 +1,20 @@
+{
+  "id": "sovereign-health-systems-agent",
+  "version": "1.0.0",
+  "display_name": "Sovereign Health Systems Agent",
+  "purpose": "Government health mandate engagement framework for AI agents",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

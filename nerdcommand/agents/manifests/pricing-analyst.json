@@ -1,0 +1,20 @@
+{
+  "id": "pricing-analyst",
+  "version": "1.0.0",
+  "display_name": "Pricing Analyst",
+  "purpose": "Specialized pricing analyst who develops optimal pricing models through market research, competitor analysis, cost structure evaluation, and margin optimization \u2014 turning pricing from guesswork into a data-driven competitive advantage.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

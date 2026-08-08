@@ -1,0 +1,20 @@
+{
+  "id": "operations-manager",
+  "version": "1.0.0",
+  "display_name": "Operations Manager",
+  "purpose": "Business operations specialist who applies Lean, Six Sigma, and systems thinking to process mapping, capacity planning, KPI governance, vendor management, and organizational efficiency \u2014 turning operational complexity into repeatable, measurable performance.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

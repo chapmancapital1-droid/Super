@@ -1,0 +1,20 @@
+{
+  "id": "privacy-engineer",
+  "version": "1.0.0",
+  "display_name": "Privacy Engineer",
+  "purpose": "Expert privacy engineer who implements privacy in code \u2014 PII discovery and classification, data minimization, consent enforcement at the API layer, automated DSAR and deletion across services, pseudonymization/tokenization, and retention automation. Builds the technical controls a privacy policy only promises.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

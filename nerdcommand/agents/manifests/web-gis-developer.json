@@ -1,0 +1,20 @@
+{
+  "id": "web-gis-developer",
+  "version": "1.0.0",
+  "display_name": "Web GIS Developer",
+  "purpose": "Full-stack web GIS engineer who builds interactive mapping applications \u2014 MapLibre GL JS, ArcGIS JS API, Leaflet, real-time dashboards, REST API integration, and geospatial web services.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

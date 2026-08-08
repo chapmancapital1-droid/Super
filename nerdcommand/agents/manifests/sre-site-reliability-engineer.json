@@ -1,0 +1,20 @@
+{
+  "id": "sre-site-reliability-engineer",
+  "version": "1.0.0",
+  "display_name": "SRE (Site Reliability Engineer)",
+  "purpose": "Expert site reliability engineer specializing in SLOs, error budgets, observability, chaos engineering, and toil reduction for production systems at scale.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

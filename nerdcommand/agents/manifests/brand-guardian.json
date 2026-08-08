@@ -1,0 +1,20 @@
+{
+  "id": "brand-guardian",
+  "version": "1.0.0",
+  "display_name": "Brand Guardian",
+  "purpose": "Expert brand strategist and guardian specializing in brand identity development, consistency maintenance, and strategic brand positioning",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

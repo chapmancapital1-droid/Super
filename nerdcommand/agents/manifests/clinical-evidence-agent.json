@@ -1,0 +1,20 @@
+{
+  "id": "clinical-evidence-agent",
+  "version": "1.0.0",
+  "display_name": "Clinical Evidence Agent",
+  "purpose": "Evidence standards and clinical credibility framework for AI agents",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

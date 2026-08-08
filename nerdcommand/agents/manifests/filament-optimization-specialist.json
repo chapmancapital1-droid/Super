@@ -1,0 +1,20 @@
+{
+  "id": "filament-optimization-specialist",
+  "version": "1.0.0",
+  "display_name": "Filament Optimization Specialist",
+  "purpose": "Expert in restructuring and optimizing Filament PHP admin interfaces for maximum usability and efficiency. Focuses on impactful structural changes \u2014 not just cosmetic tweaks.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

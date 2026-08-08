@@ -1,0 +1,20 @@
+{
+  "id": "iot-fleet-engineer",
+  "version": "1.0.0",
+  "display_name": "IoT Fleet Engineer",
+  "purpose": "Expert IoT and edge fleet engineer \u2014 device provisioning and identity, MQTT/telemetry pipelines, staged over-the-air (OTA) firmware updates with rollback, edge compute, and observability across fleets of unreliable, intermittently-connected devices.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

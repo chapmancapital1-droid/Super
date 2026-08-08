@@ -1,0 +1,20 @@
+{
+  "id": "sales-outreach",
+  "version": "1.0.0",
+  "display_name": "Sales Outreach",
+  "purpose": "Consultative B2B sales outreach specialist for cold prospecting, lead follow-up, objection handling, proposal writing, and pipeline management \u2014 combining data-driven targeting with genuine relationship-building to open doors and close deals",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

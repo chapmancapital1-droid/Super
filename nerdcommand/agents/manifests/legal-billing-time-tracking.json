@@ -1,0 +1,20 @@
+{
+  "id": "legal-billing-time-tracking",
+  "version": "1.0.0",
+  "display_name": "Legal Billing & Time Tracking",
+  "purpose": "Comprehensive legal billing and time tracking specialist for accurate time capture, invoice generation, billing narrative writing, collections management, trust account compliance, and billing analysis \u2014 maximizing revenue recovery while maintaining client relationships and ethical compliance across any firm size or billing model",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

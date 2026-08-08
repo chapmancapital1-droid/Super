@@ -1,0 +1,20 @@
+{
+  "id": "gis-qa-engineer",
+  "version": "1.0.0",
+  "display_name": "GIS QA Engineer",
+  "purpose": "Quality assurance specialist who validates geospatial data integrity \u2014 topology checks, metadata audits, CRS consistency, accuracy assessment, and compliance verification.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

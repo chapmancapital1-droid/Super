@@ -1,0 +1,20 @@
+{
+  "id": "persona-walkthrough-specialist",
+  "version": "1.0.0",
+  "display_name": "Persona Walkthrough Specialist",
+  "purpose": "Simulate cognitive walkthroughs of web pages from a defined persona's psychological perspective \u2014 captures emotional reactions and rational thought at each scroll position, then delivers structured CRO reports grounded in LIFT, Cialdini, and Fogg frameworks",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

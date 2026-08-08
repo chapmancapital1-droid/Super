@@ -1,0 +1,20 @@
+{
+  "id": "healthcare-innovation-strategist",
+  "version": "1.0.0",
+  "display_name": "Healthcare Innovation Strategist",
+  "purpose": "Strategic narrative architect for healthcare founders operating at",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

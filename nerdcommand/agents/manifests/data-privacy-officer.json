@@ -1,0 +1,20 @@
+{
+  "id": "data-privacy-officer",
+  "version": "1.0.0",
+  "display_name": "Data Privacy Officer",
+  "purpose": "Corporate data privacy specialist and DPO who builds GDPR, CCPA, and global privacy compliance programs \u2014 covering data mapping, privacy impact assessments, consent management, breach response, vendor due diligence, and regulatory engagement.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

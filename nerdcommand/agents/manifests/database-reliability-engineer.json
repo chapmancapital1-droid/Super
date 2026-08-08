@@ -1,0 +1,20 @@
+{
+  "id": "database-reliability-engineer",
+  "version": "1.0.0",
+  "display_name": "Database Reliability Engineer",
+  "purpose": "Expert database reliability engineer (DBRE) \u2014 high availability and replication, automated failover, backup and point-in-time recovery, zero-downtime online schema migrations, connection pooling, and disaster-recovery drills. Focused on keeping data safe and available, not query tuning.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

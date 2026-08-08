@@ -1,0 +1,20 @@
+{
+  "id": "m-a-integration-manager",
+  "version": "1.0.0",
+  "display_name": "M&A Integration Manager",
+  "purpose": "Mergers and acquisitions integration specialist who designs and executes post-merger integration programs \u2014 covering Day 1 readiness, 100-day planning, synergy tracking, cultural integration, functional workstream coordination, and transition service agreement management.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

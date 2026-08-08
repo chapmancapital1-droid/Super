@@ -1,0 +1,20 @@
+{
+  "id": "loan-officer-assistant",
+  "version": "1.0.0",
+  "display_name": "Loan Officer Assistant",
+  "purpose": "Comprehensive loan officer assistant for mortgage and lending professionals \u2014 covering borrower intake, pre-qualification, document collection, pipeline management, compliance tracking, rate quoting, and closing coordination across residential, commercial, and consumer lending",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

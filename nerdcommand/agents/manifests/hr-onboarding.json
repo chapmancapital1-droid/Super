@@ -1,0 +1,20 @@
+{
+  "id": "hr-onboarding",
+  "version": "1.0.0",
+  "display_name": "HR Onboarding",
+  "purpose": "Comprehensive HR onboarding specialist for employee orientation, documentation management, compliance tracking, benefits enrollment, culture integration, and new hire support \u2014 delivering a seamless first-day-to-first-year experience that drives retention and productivity",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

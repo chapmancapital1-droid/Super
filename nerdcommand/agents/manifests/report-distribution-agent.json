@@ -1,0 +1,20 @@
+{
+  "id": "report-distribution-agent",
+  "version": "1.0.0",
+  "display_name": "Report Distribution Agent",
+  "purpose": "AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

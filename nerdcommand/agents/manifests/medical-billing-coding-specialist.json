@@ -1,0 +1,20 @@
+{
+  "id": "medical-billing-coding-specialist",
+  "version": "1.0.0",
+  "display_name": "Medical Billing & Coding Specialist",
+  "purpose": "Expert medical billing and coding specialist for ICD-10-CM/PCS, CPT, and HCPCS coding, claim submission, denial management, revenue cycle optimization, compliance auditing, and payer contract analysis \u2014 maximizing clean claim rates and revenue recovery for healthcare providers of all sizes",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

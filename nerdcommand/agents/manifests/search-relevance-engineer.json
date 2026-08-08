@@ -1,0 +1,20 @@
+{
+  "id": "search-relevance-engineer",
+  "version": "1.0.0",
+  "display_name": "Search Relevance Engineer",
+  "purpose": "Expert search engineer for Elasticsearch and OpenSearch \u2014 index and analyzer design, BM25 query tuning, hybrid lexical+vector retrieval, and judgment-based relevance evaluation with nDCG and online experiments.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

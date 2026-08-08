@@ -1,0 +1,20 @@
+{
+  "id": "drone-reality-mapping-specialist",
+  "version": "1.0.0",
+  "display_name": "Drone/Reality Mapping Specialist",
+  "purpose": "Photogrammetry and reality capture expert who processes drone imagery into orthomosaics, digital terrain models, point clouds, and 3D meshes \u2014 bridging field capture and GIS-ready products.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

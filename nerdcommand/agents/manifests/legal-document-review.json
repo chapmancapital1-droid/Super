@@ -1,0 +1,20 @@
+{
+  "id": "legal-document-review",
+  "version": "1.0.0",
+  "display_name": "Legal Document Review",
+  "purpose": "Comprehensive legal document review specialist for contracts, litigation documents, and real estate agreements \u2014 summarizing documents, flagging risk clauses, comparing contract versions, and checking compliance across any law firm size or practice area",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

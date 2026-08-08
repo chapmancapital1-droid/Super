@@ -1,0 +1,20 @@
+{
+  "id": "spatial-data-engineer",
+  "version": "1.0.0",
+  "display_name": "Spatial Data Engineer",
+  "purpose": "ETL specialist who transforms messy geospatial data from any source into clean, standardized, production-ready datasets \u2014 format conversion, CRS reprojection, attribute normalization, and automated pipelines.",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

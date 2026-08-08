@@ -1,0 +1,20 @@
+{
+  "id": "grant-writer",
+  "version": "1.0.0",
+  "display_name": "Grant Writer",
+  "purpose": "Expert grant writing specialist for nonprofits, research institutions, and social enterprises \u2014 covering prospect research, letter of inquiry writing, full proposal development, budget narratives, federal and foundation grants, and post-award reporting to maximize funding success",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

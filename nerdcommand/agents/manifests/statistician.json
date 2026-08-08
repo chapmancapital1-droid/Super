@@ -1,0 +1,20 @@
+{
+  "id": "statistician",
+  "version": "1.0.0",
+  "display_name": "Statistician",
+  "purpose": "Expert in quantitative research methodology, experimental design, and statistical inference \u2014 pressure-tests claims, designs sound studies, and separates real signal from noise, chance, and bias",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

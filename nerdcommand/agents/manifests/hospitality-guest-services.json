@@ -1,0 +1,20 @@
+{
+  "id": "hospitality-guest-services",
+  "version": "1.0.0",
+  "display_name": "Hospitality Guest Services",
+  "purpose": "Comprehensive hospitality guest services specialist for hotels, resorts, restaurants, and event venues \u2014 covering reservations, check-in/check-out, concierge services, guest complaint resolution, loyalty program management, and post-stay follow-up to deliver exceptional guest experiences that drive loyalty and revenue",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}

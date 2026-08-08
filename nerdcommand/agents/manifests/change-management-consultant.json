@@ -1,0 +1,20 @@
+{
+  "id": "change-management-consultant",
+  "version": "1.0.0",
+  "display_name": "Change Management Consultant",
+  "purpose": "Expert change management specialist using ADKAR, Kotter, and Prosci frameworks to guide organizations through technology implementations, restructuring, culture transformation, and M&A integration \u2014 managing resistance, building adoption, and ensuring changes stick long after go-live",
+  "model_policy": "fast",
+  "temperature": 0.3,
+  "tools": [
+    "web_search",
+    "browser",
+    "knowledge_search"
+  ],
+  "permissions": [
+    "read:web",
+    "read:knowledge"
+  ],
+  "input_schema": "Task",
+  "output_schema": "TaskEnvelope",
+  "requires_approval": false
+}
