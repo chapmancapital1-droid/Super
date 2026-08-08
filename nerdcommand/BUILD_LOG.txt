@@ -2379,6 +2379,11 @@ PostgreSQL-backed store in Phase 5.
       "command": "python3",
       "args": ["/home/user/Super/nerdcommand/skills/mcp/sample_server.py"],
       "env": {}
+    },
+    "openapi-bridge": {
+      "command": "python3",
+      "args": ["/home/user/Super/nerdcommand/skills/mcp/openapi_bridge.py", "http://127.0.0.1:8787/openapi.json"],
+      "env": {}
     }
   }
 }
