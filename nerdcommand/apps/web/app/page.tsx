@@ -12,6 +12,7 @@ import type {
   TaskView,
 } from "@/lib/types";
 import SensesPanel from "@/app/components/SensesPanel";
+import JarvisCore, { JarvisMode } from "@/app/components/JarvisCore";
 import { speak } from "@/lib/senses";
 
 const EXAMPLES = [
@@ -59,6 +60,8 @@ export default function CommandCenter() {
   const [agents, setAgents] = useState<AgentManifest[]>([]);
   const [sessionId, setSessionId] = useState<string | undefined>();
   const [backendOnline, setBackendOnline] = useState<boolean | null>(null);
+  const [audioLevel, setAudioLevel] = useState(0);
+  const [jarvisMode, setJarvisMode] = useState<JarvisMode>("idle");
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -78,12 +81,25 @@ export default function CommandCenter() {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, result]);
 
+  useEffect(() => {
+    if (!result) return;
+    const isRunning = result.plan.some(t => t.status === "running");
+    if (isRunning) {
+      const activeAgent = result.plan.find(t => t.status === "running")?.agent_id;
+      if (activeAgent === "researcher") setJarvisMode("researching");
+      else setJarvisMode("thinking");
+    } else if (result.status === "complete" && jarvisMode !== "speaking") {
+      setJarvisMode("idle");
+    }
+  }, [result, jarvisMode]);
+
   const send = useCallback(async () => {
     const text = input.trim();
     if (!text || busy) return;
     setMessages((m) => [...m, { role: "user", text }]);
     setInput("");
     setBusy(true);
+    setJarvisMode("thinking");
     try {
       const resp = await chat({
         message: text,
@@ -93,10 +109,17 @@ export default function CommandCenter() {
       setResult(resp);
       setMessages((m) => [...m, { role: "jarvis", text: resp.summary }]);
       // Speak the reply out loud so JARVIS talks back.
-      if (resp.summary) speak(resp.summary);
+      if (resp.summary) {
+        setJarvisMode("speaking");
+        speak(resp.summary);
+        setTimeout(() => setJarvisMode("idle"), 2000); // Reset after some time
+      } else {
+        setJarvisMode("idle");
+      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setMessages((m) => [...m, { role: "jarvis", text: `Error: ${msg}` }]);
+      setJarvisMode("idle");
     } finally {
       setBusy(false);
     }
@@ -121,6 +144,8 @@ export default function CommandCenter() {
       <main>
         <div className="grid">
           <div>
+            <JarvisCore level={audioLevel} mode={jarvisMode} />
+
             <div className="card">
               <h2>Command</h2>
               <div className="chat-box">
@@ -190,20 +215,29 @@ export default function CommandCenter() {
 
           <div>
             <SensesPanel
+              onLevelChange={(l) => setAudioLevel(l)}
               onCommand={async (text) => {
                 // A spoken (or tested) command flows into the chat pipeline.
                 setInput(text);
                 setMessages((m) => [...m, { role: "user", text }]);
                 setBusy(true);
+                setJarvisMode("thinking");
                 try {
                   const resp = await chat({ message: text, session_id: sessionId });
                   if (resp.session_id) setSessionId(resp.session_id);
                   setResult(resp);
                   setMessages((m) => [...m, { role: "jarvis", text: resp.summary }]);
-                  if (resp.summary) speak(resp.summary);
+                  if (resp.summary) {
+                    setJarvisMode("speaking");
+                    speak(resp.summary);
+                    setTimeout(() => setJarvisMode("idle"), 3000);
+                  } else {
+                    setJarvisMode("idle");
+                  }
                 } catch (err) {
                   const msg = err instanceof Error ? err.message : String(err);
                   setMessages((m) => [...m, { role: "jarvis", text: `Error: ${msg}` }]);
+                  setJarvisMode("idle");
                 } finally {
                   setBusy(false);
                 }

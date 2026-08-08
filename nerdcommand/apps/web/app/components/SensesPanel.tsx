@@ -18,9 +18,11 @@ type SenseTab = "voice" | "room" | "vision";
 export default function SensesPanel({
   onCommand,
   onSpeakResponse,
+  onLevelChange,
 }: {
   onCommand: (text: string) => void;
   onSpeakResponse: (text: string) => void;
+  onLevelChange?: (level: number) => void;
 }) {
   const [tab, setTab] = useState<SenseTab>("voice");
   const [micOn, setMicOn] = useState(false);
@@ -28,6 +30,10 @@ export default function SensesPanel({
   const [interim, setInterim] = useState("");
   const [finalText, setFinalText] = useState("");
   const [level, setLevel] = useState(0);
+
+  useEffect(() => {
+    if (onLevelChange) onLevelChange(level);
+  }, [level, onLevelChange]);
   const [roomInfo, setRoomInfo] = useState<string>("Not yet listening.");
   const [roomEnabled, setRoomEnabled] = useState(false);
   const [camOn, setCamOn] = useState(false);
@@ -169,10 +175,11 @@ export default function SensesPanel({
               padding: "6px 12px",
               border: "1px solid var(--grid)",
               borderRadius: 6,
-              background: tab === t ? "var(--navy)" : "#fff",
-              color: tab === t ? "#fff" : "var(--ink)",
+              background: tab === t ? "var(--indigo)" : "rgba(0,0,0,0.3)",
+              color: "#fff",
               cursor: "pointer",
               fontSize: 12,
+              boxShadow: tab === t ? "0 0 10px var(--cyan-glow)" : "none",
             }}
           >
             {t}
@@ -232,9 +239,10 @@ export default function SensesPanel({
               className="meta mono"
               style={{
                 height: 12,
-                background: "#eee",
+                background: "rgba(255,255,255,0.05)",
                 borderRadius: 6,
                 overflow: "hidden",
+                border: "1px solid var(--indigo)",
               }}
             >
               <div
@@ -242,6 +250,7 @@ export default function SensesPanel({
                   height: "100%",
                   width: `${Math.min(100, Math.round(level * 200))}%`,
                   background: "var(--cyan)",
+                  boxShadow: "0 0 10px var(--cyan)",
                   transition: "width 120ms",
                 }}
               />
