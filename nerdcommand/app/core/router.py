@@ -154,8 +154,26 @@ class ModelRouter:
         user_prompt: str,
         json_schema: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
-        provider = self.provider_for(agent)
+        # Determine the model name for this policy.
         model = self.model_for(agent)
+
+        # Start with the default provider for the requested mode.
+        provider = self.provider_for(agent)
+
+        # Multi-LLM Support: Check if this specific policy (fast, reasoning, code)
+        # has its own dedicated local endpoint or key.
+        policy = agent.model_policy
+        policy_url = getattr(settings, f"model_{policy}_url", "")
+        policy_key = getattr(settings, f"model_{policy}_key", "")
+
+        # If an override URL is provided, we use a temporary provider instance
+        # targeting that specific LLM.
+        if policy_url and provider.name == "openai":
+            provider = OpenAICompatibleProvider(
+                api_key=policy_key or settings.openai_api_key,
+                base_url=policy_url
+            )
+
         span("model", provider=provider.name, model=model,
              policy=agent.model_policy)
         return provider.generate(

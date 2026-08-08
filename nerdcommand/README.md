@@ -59,6 +59,16 @@ uvicorn app.main:app --reload          # echo provider, no key needed
 # API docs: http://127.0.0.1:8000/docs
 ```
 
+### Multi-LLM Local Configuration
+
+JARVIS supports running multiple local LLMs (e.g., Llama 3 for reasoning, Phi 3 for fast tasks) by overriding endpoints per model policy:
+
+```bash
+export JARVIS_MODEL_FAST_URL="http://127.0.0.1:11434/v1"      # Ollama
+export JARVIS_MODEL_REASONING_URL="http://127.0.0.1:1234/v1" # LM Studio
+export JARVIS_MODEL_CODE_URL="http://127.0.0.1:8080/v1"      # vLLM
+```
+
 ### 2. Frontend (Next.js web UI)
 
 ```bash

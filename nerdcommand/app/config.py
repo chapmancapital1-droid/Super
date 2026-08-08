@@ -30,9 +30,20 @@ class Settings:
     openai_base_url: str = os.getenv(
         "JARVIS_OPENAI_BASE_URL", "http://127.0.0.1:1234/v1"
     )
+
+    # Individual overrides for multi-LLM local configurations.
+    # If set, these take precedence for the specific model policy.
     model_fast: str = os.getenv("JARVIS_MODEL_FAST", "gpt-4o-mini")
+    model_fast_url: str = os.getenv("JARVIS_MODEL_FAST_URL", "")
+    model_fast_key: str = os.getenv("JARVIS_MODEL_FAST_KEY", "")
+
     model_reasoning: str = os.getenv("JARVIS_MODEL_REASONING", "gpt-4o")
+    model_reasoning_url: str = os.getenv("JARVIS_MODEL_REASONING_URL", "")
+    model_reasoning_key: str = os.getenv("JARVIS_MODEL_REASONING_KEY", "")
+
     model_code: str = os.getenv("JARVIS_MODEL_CODE", "gpt-4o-mini")
+    model_code_url: str = os.getenv("JARVIS_MODEL_CODE_URL", "")
+    model_code_key: str = os.getenv("JARVIS_MODEL_CODE_KEY", "")
 
     # --- Directories ---
     manifests_dir: Path = Path(os.getenv(
